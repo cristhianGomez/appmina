@@ -2,6 +2,7 @@ package com.forward.appgestion.ui.alimentadores2300List
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.appcompat.widget.SearchView
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.forward.appgestion.R
 import com.forward.appgestion.data.model.SpecificRegister.SpecificRegisterList
 import com.forward.appgestion.ui.Constants
+import com.forward.appgestion.ui.TopSpacingItemDecoration
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.alimen23_list_fragment.*
 
@@ -33,13 +35,16 @@ class Alimen23ListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         viewModel =
-            ViewModelProviders.of(this, SpecificRegisterViewModelFactory(activity!!.application)).get(Alimen23ListViewModel::class.java)
+            ViewModelProviders.of(this, SpecificRegisterViewModelFactory(activity!!.application))
+                .get(Alimen23ListViewModel::class.java)
         return inflater.inflate(R.layout.alimen23_list_fragment, container, false)
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val topSpacingDecorator = TopSpacingItemDecoration(5)
+        rec_list_fragment.addItemDecoration(topSpacingDecorator)
         getLoadingStatus()
         getData(statusLoading)
 
@@ -75,6 +80,7 @@ class Alimen23ListFragment : Fragment() {
         viewModel.getData(status,1)
         viewModel.getSpecifiRegisterListData().observe(this, Observer {
             if (it != null) {
+                Log.d("cuack2","getSpecifiRegisterListData: $it")
                 setRecyclerView(it)
             }
         })

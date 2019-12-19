@@ -15,7 +15,7 @@ object SpecificRegisterService {
     fun makeSpecificRegisterListService(): SpecificRegisterApi{
         return Retrofit.Builder()
             .baseUrl(ConstanstUrls.BASE_URL)
-            .addConverterFactory(MoshiConverterFactory.create()).client(okHttp.build())
+            .addConverterFactory(MoshiConverterFactory.create())
             .build().create(SpecificRegisterApi::class.java)
 
     }

@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.specific_item_list.view.*
 
 
 @Suppress("UNCHECKED_CAST")
-class SpecificRegisterListAdapter(context: Context, private var specificRegisterList: SpecificRegisterList) :
+class SpecificRegisterListAdapter(context: Context, specificRegisterList: SpecificRegisterList) :
 RecyclerView.Adapter<RecyclerView.ViewHolder>(), Filterable {
 
     private val TAG: String = "AppDebug"
