@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filterable
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com .forward.appgestion.R
 import com.forward.appgestion.data.model.SpecificRegister.Data
@@ -68,9 +67,9 @@ RecyclerView.Adapter<RecyclerView.ViewHolder>(), Filterable {
         private val tVAuthor = itemView.lbl_author
 
         fun bind(specificRegisterItem: Data){
-            tVDesc.text = specificRegisterItem.descripcion
-            tVMant.text = specificRegisterItem.fecha_mantenimiento
-            tVNMant.text = specificRegisterItem.fecha_prox_mantenimiento
+            tVDesc.text = specificRegisterItem.description
+            tVMant.text = specificRegisterItem.maintenanceDate
+            tVNMant.text = specificRegisterItem.nextMaintenanceDate
             tVAuthor.text = specificRegisterItem.userName
         }
     }
@@ -85,8 +84,8 @@ RecyclerView.Adapter<RecyclerView.ViewHolder>(), Filterable {
                     filteredList.addAll(srListAll)
                 }else{
                     for(driver in srListAll){
-                        val nameAndDocument = driver.descripcion+
-                                driver.fecha_prox_mantenimiento+
+                        val nameAndDocument = driver.description+
+                                driver.nextMaintenanceDate+
                                 driver.userName
                         if (nameAndDocument.toLowerCase().contains(query.toString().toLowerCase())){
                             filteredList.add(driver)

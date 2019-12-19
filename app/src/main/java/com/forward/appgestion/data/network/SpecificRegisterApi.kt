@@ -8,6 +8,6 @@ import retrofit2.http.Path
 
 interface SpecificRegisterApi {
 
-        @GET("https://mecanico-pat.herokuapp.com/api/specific-register/machine/{machine}")
+        @GET("/api/specific-register/machine/{machine}")
         suspend fun getSpecificRegisterList(@Header("Authorization") authorization: String, @Path("machine") id: Int): Response<SpecificRegisterList>
 }

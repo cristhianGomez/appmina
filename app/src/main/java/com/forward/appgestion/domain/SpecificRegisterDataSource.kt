@@ -15,6 +15,7 @@ import java.io.IOException
 class SpecificRegisterDataSource {
 
     suspend fun getSpecificRegisterData(token: String, machine: Int): Response<SpecificRegisterList> {
+        println("this is token: $token and machine is: $machine ")
         return SpecificRegisterService.makeSpecificRegisterListService().getSpecificRegisterList(token,machine)
     }
 
