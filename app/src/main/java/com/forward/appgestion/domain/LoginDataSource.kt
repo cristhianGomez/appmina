@@ -1,10 +1,7 @@
 package com.forward.appgestion.domain
-
 import android.app.Application
 import android.content.Context
-import com.forward.appgestion.data.model.AuthenticationResponse
-import com.forward.appgestion.data.model.LoggedInUser
-import com.forward.appgestion.data.model.Login
+import com.forward.appgestion.data.model.*
 import com.forward.appgestion.data.network.LoginService
 import retrofit2.Response
 import java.io.IOException
@@ -14,7 +11,7 @@ import java.io.IOException
  */
 class LoginDataSource {
 
-    suspend fun login(username: String, password: String): Response<AuthenticationResponse> {
+    suspend fun login(username: String, password: String): Response<Login2> {
         return LoginService.makeLoginService().loginWithCredentials(Login(username,password))
     }
 

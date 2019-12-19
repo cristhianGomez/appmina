@@ -3,6 +3,7 @@ package com.forward.appgestion.ui.login
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -45,13 +46,8 @@ class LoginViewModel(private val loginRepository: LoginRepository,
     }
 
     fun loginDataChanged(username: String, password: String) {
-        if (!isUserNameValid(username)) {
-            _loginForm.value = LoginFormState(usernameError = R.string.invalid_username)
-        } else if (!isPasswordValid(password)) {
-            _loginForm.value = LoginFormState(passwordError = R.string.invalid_password)
-        } else {
             _loginForm.value = LoginFormState(isDataValid = true)
-        }
+
     }
 
     // A placeholder username validation check
@@ -73,6 +69,7 @@ class LoginViewModel(private val loginRepository: LoginRepository,
         val sharedPref: SharedPreferences = application.getSharedPreferences("credentials",
             Context.MODE_PRIVATE)
         val editor = sharedPref.edit()
+
         editor.putString("token",token)
         editor.putString("user",user)
         editor.apply()

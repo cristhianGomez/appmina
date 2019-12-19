@@ -37,12 +37,12 @@ class LoginRepository(val dataSource: LoginDataSource) {
 
     suspend fun login(username: String, password: String): Result<LoggedInUser> {
         // handle login
+
         val response = dataSource.login(username, password)
         if (response.isSuccessful) {
             Log.d("cuack","response: ${response.body()!!}")
             val result = response.body()!!
-            val userLogged  = LoggedInUser(java.util.UUID.randomUUID().toString(),
-                "UserTest", result.token)
+            val userLogged  = LoggedInUser(result.data!!.user!!.id!!.toString(), result.data!!.user!!.name!!, result.meta!!.token!!)
             setLoggedInUser(userLogged)
 
             return Result.Success(userLogged)
