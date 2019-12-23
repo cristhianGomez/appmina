@@ -37,7 +37,7 @@ class GeneralRegisterFragment : Fragment() {
         viewModel =
             ViewModelProviders.of(this, GeneralRegistersViewModelFactory(activity!!.application))
                 .get(GeneralRegistersViewModel::class.java)
-        return inflater.inflate(R.layout.alimen23_list_fragment, container, false)
+        return inflater.inflate(R.layout.general_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
