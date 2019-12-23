@@ -7,6 +7,10 @@ object Constants {
     const val STATUS_COMPLETE = 1
     const val STATUS_LOADING = 2
     const val STATUS_ERROR = 3
+    //fragment status
+    const val FRAGMENT_CREATE = 2
+    const val FRAGMENT_EDIT= 3
+    const val FRAGMENT_VIEW= 1
 
     //Intent Keys
     const val EXTRA_USER_DATA = "EXTRA_USER_DATA"

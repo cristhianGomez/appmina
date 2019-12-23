@@ -3,6 +3,7 @@ package com.forward.appgestion.domain
 import android.app.Application
 import android.content.Context
 import com.forward.appgestion.data.model.*
+import com.forward.appgestion.data.model.SpecificRegister.SpecificRegisterDetail
 import com.forward.appgestion.data.model.SpecificRegister.SpecificRegisterList
 import com.forward.appgestion.data.network.LoginService
 import com.forward.appgestion.data.network.SpecificRegisterService
@@ -15,8 +16,9 @@ import java.io.IOException
 class SpecificRegisterDataSource {
 
     suspend fun getSpecificRegisterData(token: String, machine: Int): Response<SpecificRegisterList> {
-        println("this is token: $token and machine is: $machine ")
         return SpecificRegisterService.makeSpecificRegisterListService().getSpecificRegisterList(token,machine)
     }
-
+    suspend fun getSpecificRegisterDetailData(token: String, id: Int): Response<SpecificRegisterDetail> {
+        return SpecificRegisterService.makeSpecificRegisterListService().getSpecificRegisterDetail(token,id)
+    }
 }
