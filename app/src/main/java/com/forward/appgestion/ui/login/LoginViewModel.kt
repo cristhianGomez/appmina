@@ -38,7 +38,7 @@ class LoginViewModel(private val loginRepository: LoginRepository,
                 _loginResult.value =
                     LoginResult(success = LoggedInUserView(displayName = result.data.displayName))
 
-                saveOauthAccessToken(result.data.token, result.data.displayName)
+                saveOauthAccessToken(result.data.token, result.data.displayName,result.data.userId)
             } else {
                 _loginResult.value = LoginResult(error = R.string.login_failed)
             }
@@ -65,13 +65,14 @@ class LoginViewModel(private val loginRepository: LoginRepository,
     }
 
     //Custom method to save Token
-    private fun saveOauthAccessToken(token:String, user:String){
+    private fun saveOauthAccessToken(token:String, user:String,user_id:String){
         val sharedPref: SharedPreferences = application.getSharedPreferences("credentials",
             Context.MODE_PRIVATE)
         val editor = sharedPref.edit()
 
         editor.putString("token",token)
         editor.putString("user",user)
+        editor.putString("user_id",user_id)
         editor.apply()
     }
 }

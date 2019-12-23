@@ -6,68 +6,80 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/informacionFragment"
+            android:icon="@drawable/ic_programming"
+            android:actionLayout="@layout/specific_register_fragment"
+            android:title="Informacion" />
+    </group>
+    <group android:checkableBehavior="single">
+        <item
             android:id="@+id/generalRegisterFragment"
             android:icon="@drawable/ic_programming"
             android:title="Registros Generales" />
     </group>
-    <item
-        android:title="Área 2300"
-        android:id="@+id/firstOne"
-        android:orderInCategory="1"
-        app:showAsAction="ifRoom">
-        <menu>
-            <item
-                android:id="@+id/alimen23ListFragment"
-                android:icon="@drawable/ic_programming"
-                android:title="Alimentadoras" />
-            <item
-                android:id="@+id/fajas23ListFragment"
-                android:icon="@drawable/ic_programming"
-                android:title="Fajas" />
-        </menu>
-    </item>
-    <item android:title="Área 2400">
-        <menu>
-            <item
-                android:id="@+id/alimen24ListFragment"
-                android:icon="@drawable/ic_programming"
-                android:title="Alimentadores" />
-            <item
-                android:id="@+id/fajas24ListFragment"
-                android:icon="@drawable/ic_programming"
-                android:title="Fajas" />
-            <item
-                android:id="@+id/chancad24ListFragment"
-                android:icon="@drawable/ic_programming"
-                android:title="Chancadoras" />
-            <item
-                android:id="@+id/colect24ListFragment"
-                android:icon="@drawable/ic_programming"
-                android:title="Colectores" />
-            <item
-                android:id="@+id/zarandas24ListFragment"
-                android:icon="@drawable/ic_programming"
-                android:title="Zarandas" />
-        </menu>
-    </item>
-    <item android:title="Área 2500">
-        <menu>
-            <item
-                android:id="@+id/alimen25ListFragment"
-                android:icon="@drawable/ic_programming"
-                android:title="Alimentadores" />
-            <item
-                android:id="@+id/fajas25ListFragment"
-                android:icon="@drawable/ic_programming"
-                android:title="Fajas" />
-            <item
-                android:id="@+id/mpgr25ListFragment"
-                android:icon="@drawable/ic_programming"
-                android:title="MPGR" />
-            <item
-                android:id="@+id/colect25ListFragment"
-                android:icon="@drawable/ic_programming"
-                android:title="Colectores" />
-        </menu>
-    </item>
+    <group>
+        <item
+            android:title="Areas Especificas"
+        >
+                <item
+                android:title="Área 2300"
+                >
+                <menu>
+                    <item
+                        android:id="@+id/alimentadores2300"
+                        android:icon="@drawable/ic_programming"
+                        android:title="Alimentadoras" />
+                    <item
+                        android:id="@+id/fajas2300"
+                        android:icon="@drawable/ic_programming"
+                        android:title="Fajas" />
+                </menu>
+            </item>
+            <item android:title="Área 2400">
+                <menu>
+                    <item
+                        android:id="@+id/alimentadores2400"
+                        android:icon="@drawable/ic_programming"
+                        android:title="Alimentadores" />
+                    <item
+                        android:id="@+id/fajas2400"
+                        android:icon="@drawable/ic_programming"
+                        android:title="Fajas" />
+                    <item
+                        android:id="@+id/chancadores2400"
+                        android:icon="@drawable/ic_programming"
+                        android:title="Chancadoras" />
+                    <item
+                        android:id="@+id/colectores2400"
+                        android:icon="@drawable/ic_programming"
+                        android:title="Colectores" />
+                    <item
+                        android:id="@+id/zarandas2400"
+                        android:icon="@drawable/ic_programming"
+                        android:title="Zarandas" />
+                </menu>
+            </item>
+            <item android:title="Área 2500">
+                <menu>
+                    <item
+                        android:id="@+id/alimentadores2500"
+                        android:icon="@drawable/ic_programming"
+                        android:title="Alimentadores" />
+                    <item
+                        android:id="@+id/fajas2500"
+                        android:icon="@drawable/ic_programming"
+                        android:title="Fajas" />
+                    <item
+                        android:id="@+id/hpgr2500"
+                        android:icon="@drawable/ic_programming"
+                        android:title="HPGR" />
+                    <item
+                        android:id="@+id/colectores2500"
+                        android:icon="@drawable/ic_programming"
+                        android:title="Colectores" />
+                </menu>
+            </item>
+
+        </item>
+    </group>
 </menu>

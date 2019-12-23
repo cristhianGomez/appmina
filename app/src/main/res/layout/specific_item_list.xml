@@ -32,16 +32,17 @@
         <TextView
             android:id="@+id/lbl_title"
             style="@style/Text.Primary"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_width="0dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="12dp"
+            android:layout_marginEnd="3dp"
             android:ellipsize="end"
             android:singleLine="true"
             android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.241"
             app:layout_constraintStart_toEndOf="@+id/lbl1"
+            app:layout_constraintHorizontal_bias="0.241"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="3dp"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Lorem ipsum sit dolar amet whatever" />
 
@@ -50,7 +51,7 @@
             style="@style/Text.Title2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
+            android:layout_marginTop="4dp"
             android:ellipsize="end"
             android:singleLine="true"
             android:text="F. Mant:"
@@ -62,7 +63,7 @@
             style="@style/Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="27dp"
             android:text="06/01/2017"
             app:layout_constraintStart_toEndOf="@+id/lbl3"
@@ -86,7 +87,7 @@
             style="@style/Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="4dp"
             android:text="TextView"
             app:layout_constraintStart_toEndOf="@+id/lbl2"
@@ -98,7 +99,7 @@
             style="@style/Text.Title2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="6dp"
             android:ellipsize="end"
             android:singleLine="true"
             android:text="Autor:"
@@ -110,33 +111,36 @@
             style="@style/Text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:text="Tomas prueba"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/lbl4"
             tools:text="Tomas prueba" />
 
-        <ImageView
-            android:id="@+id/img_edit"
-            android:layout_width="25dp"
-            android:layout_height="24dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
+        <ImageButton
+            android:id="@+id/img_delete"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="0dp"
             android:alpha=".86"
+            android:background="@color/colorTransparentWhite"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_driver" />
+            app:srcCompat="@drawable/delete_icon" />
 
-        <ImageView
-            android:id="@+id/img_delete"
-            android:layout_width="25dp"
-            android:layout_height="24dp"
+        <ImageButton
+            android:id="@+id/img_edit"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
             android:layout_marginEnd="12dp"
-            android:layout_marginBottom="8dp"
+            android:background="@color/colorTransparentWhite"
+            android:layout_marginBottom="0dp"
             android:alpha=".86"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/img_edit"
-            app:srcCompat="@drawable/ic_vehicle" />
+            app:layout_constraintEnd_toStartOf="@+id/img_delete"
+            app:srcCompat="@drawable/edit_icon" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

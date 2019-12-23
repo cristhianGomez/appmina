@@ -5,65 +5,28 @@
     android:id="@+id/mobile_navigation"
     app:startDestination="@id/generalRegisterFragment">
 
-
     <fragment
         android:id="@+id/generalRegisterFragment"
         android:name="com.forward.appgestion.ui.generalRegisters.GeneralRegisterFragment"
-        android:label="Registro Generales"
+        android:label="Registros Generales"
         tools:layout="@layout/general_fragment" />
     <fragment
-        android:id="@+id/alimen23ListFragment"
-        android:name="com.forward.appgestion.ui.alimentadores2300List.Alimen23ListFragment"
-        android:label="Alimentadores"
-        tools:layout="@layout/alimen23_list_fragment" />
+        android:id="@+id/specificRegisterFragment"
+        android:name="com.forward.appgestion.ui.specificRegisterList.SpecificRegisterFragment"
+        android:label="Registros Especificos"
+        tools:layout="@layout/specific_register_fragment" >
+        <action
+            android:id="@+id/action_specificRegisterFragment_to_specificRegisterDetailFragment"
+            app:destination="@id/specificRegisterDetailFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/fajas23ListFragment"
-        android:name="com.forward.appgestion.ui.fajas2300List.Fajas23ListFragment"
-        android:label="Fajas"
-        tools:layout="@layout/fajas23_list_fragment" />
+        android:id="@+id/informacionFragment"
+        android:name="com.forward.appgestion.ui.informacion.InformacionFragment"
+        android:label="Informacion"
+        tools:layout="@layout/informacion_fragment"/>
     <fragment
-        android:id="@+id/alimen24ListFragment"
-        android:name="com.forward.appgestion.ui.alimentadores2400List.Alimen24ListFragment"
-        android:label="Alimentadores"
-        tools:layout="@layout/alimen24_list_fragment" />
-    <fragment
-        android:id="@+id/fajas24ListFragment"
-        android:name="com.forward.appgestion.ui.fajas2400List.Fajas24ListFragment"
-        android:label="Fajas"
-        tools:layout="@layout/fajas24_list_fragment" />
-    <fragment
-        android:id="@+id/chancad24ListFragment"
-        android:name="com.forward.appgestion.ui.chancadoras2400List.Chancad24ListFragment"
-        android:label="Chancadoras"
-        tools:layout="@layout/chancad24_list_fragment" />
-    <fragment
-        android:id="@+id/colect24ListFragment"
-        android:name="com.forward.appgestion.ui.colectores2400List.Colect24ListFragment"
-        android:label="Colectores"
-        tools:layout="@layout/colect24_list_fragment" />
-    <fragment
-        android:id="@+id/zarandas24ListFragment"
-        android:name="com.forward.appgestion.ui.zarandas2400List.Zarandas24ListFragment"
-        android:label="Zarandas"
-        tools:layout="@layout/zarandas24_list_fragment" />
-    <fragment
-        android:id="@+id/alimen25ListFragment"
-        android:name="com.forward.appgestion.ui.alimentadores2500List.Alimen25ListFragment"
-        android:label="Alimentadores"
-        tools:layout="@layout/alimen25_list_fragment" />
-    <fragment
-        android:id="@+id/fajas25ListFragment"
-        android:name="com.forward.appgestion.ui.fajas2500List.Fajas25ListFragment"
-        android:label="Fajas"
-        tools:layout="@layout/fajas25_list_fragment" />
-    <fragment
-        android:id="@+id/mpgr25ListFragment"
-        android:name="com.forward.appgestion.ui.mpgr2500List.Mpgr25ListFragment"
-        android:label="MPGR"
-        tools:layout="@layout/mpgr25_list_fragment" />
-    <fragment
-        android:id="@+id/colect25ListFragment"
-        android:name="com.forward.appgestion.ui.colectores2500List.Colect25ListFragment"
-        android:label="Colectores"
-        tools:layout="@layout/colect25_list_fragment" />
+        android:id="@+id/specificRegisterDetailFragment"
+        android:name="com.forward.appgestion.ui.specificRegisterDetailList.SpecificRegisterDetailFragment"
+        android:label="Detalles"
+        tools:layout="@layout/specific_register__detail_fragment" />
 </navigation>
