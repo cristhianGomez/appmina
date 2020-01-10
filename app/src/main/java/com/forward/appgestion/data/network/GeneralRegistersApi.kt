@@ -11,4 +11,5 @@ interface GeneralRegistersApi {
     suspend fun getGeneralRegistersList(
         @Header("Authorization") authorization: String
     ):Response<GeneralRegistersListModel>
+
 }

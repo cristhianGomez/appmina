@@ -126,7 +126,7 @@
             android:alpha=".86"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@drawable/ic_driver" />
+            app:srcCompat="@drawable/delete_icon" />
 
         <ImageView
             android:id="@+id/img_delete"
@@ -137,6 +137,6 @@
             android:alpha=".86"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/img_edit"
-            app:srcCompat="@drawable/ic_vehicle" />
+            app:srcCompat="@drawable/edit_icon" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

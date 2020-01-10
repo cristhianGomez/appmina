@@ -18,10 +18,14 @@ import coil.api.load
 
 import com.forward.appgestion.R
 import com.forward.appgestion.data.model.SpecificRegister.SpecificRegisterDetail
+import com.forward.appgestion.data.repository.LoginRepository
+import com.forward.appgestion.domain.LoginDataSource
+import com.forward.appgestion.domain.Result
 import com.forward.appgestion.ui.Constants
 import com.forward.appgestion.ui.TopSpacingItemDecoration
 import com.forward.appgestion.ui.specificRegisterList.SpecificRegisterViewModel
 import com.forward.appgestion.ui.specificRegisterList.SpecificRegisterViewModelFactory
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.specific_register__detail_fragment.*
 import kotlinx.android.synthetic.main.specific_register__detail_fragment.button
@@ -37,7 +41,7 @@ import kotlinx.android.synthetic.main.specific_register__detail_fragment.pb_prog
 import kotlinx.android.synthetic.main.specific_register__detail_fragment.sr_container
 import kotlinx.android.synthetic.main.specific_register__detail_fragment.swLayout
 import kotlinx.android.synthetic.main.specific_register__detail_fragment.tag_input
-import kotlinx.android.synthetic.main.specific_register__detail_fragment_2.*
+import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -86,10 +90,10 @@ class SpecificRegisterDetailFragment : Fragment() {
         println("status"+detail_status+"|"+detail_id+"|"+statusLoading)
         when (detail_status){
             Constants.FRAGMENT_CREATE->{
-                button.setText("CREAR REGISTRO")
+                button.text = "CREAR REGISTRO"
             }
             Constants.FRAGMENT_EDIT->{
-                button.setText("EDITAR REGISTRO")
+                button.text = "EDITAR REGISTRO"
                 getData(statusLoading,detail_id)
                 // refresh your list contents somehow
 
@@ -97,7 +101,6 @@ class SpecificRegisterDetailFragment : Fragment() {
                     getData(statusLoading,detail_id)
                     swLayout.isRefreshing = false
                 }
-
 
             }
             Constants.FRAGMENT_VIEW->{
@@ -117,7 +120,8 @@ class SpecificRegisterDetailFragment : Fragment() {
                 descripcion_input.isFocusable=false
                 f_prox_mant_input.isEnabled=false
                 f_mant_input.isEnabled=false
-                action_list.visibility= View.GONE
+                editText.visibility= View.GONE
+                add_list_item.visibility= View.GONE
 
             }
         }
@@ -188,15 +192,39 @@ class SpecificRegisterDetailFragment : Fragment() {
                 var arr = ArrayList<String>()
                 var arrAd : ArrayAdapter<String>
 
-                    if (specificRegisterDetail!!.register!!.trabajosRealizados!=null) {
-                    var a= specificRegisterDetail!!.register!!.trabajosRealizados!!.split('|')
-                    for(i in a){
-                        arr.add(i)
+                var a= specificRegisterDetail!!.register!!.trabajosRealizados!!.split('|')
+                for(i in a){
+                    arr.add(i)
 
+                }
+                arrAd= ArrayAdapter(context!!,R.layout.spinnerresource,arr)
+                listView.adapter= arrAd
+                if(detail_status==Constants.FRAGMENT_EDIT) {
+                    listView.onItemLongClickListener =
+                        AdapterView.OnItemLongClickListener { parent, view, position, id ->
+                            MaterialAlertDialogBuilder(requireContext())
+                                .setMessage("Seguro que desea eliminar")
+                                .setNegativeButton(getString(R.string.alert_dialog_cancel), null)
+                                .setPositiveButton("ACEPTAR") { _, _ ->
+                                    arr.removeAt(position)
+                                    arrAd.notifyDataSetChanged()
+
+                                }
+                                .show()
+                            false
+                        }
+
+                }
+                add_list_item.setOnClickListener{
+                    val txt=editText.text.toString()
+                    if(txt!="" && arr.size < 10 ) {
+                        arr.add(txt)
+                        arrAd.notifyDataSetChanged()
+                        editText.setText("")
                     }
-                        arrAd= ArrayAdapter(context!!,R.layout.spinnerresource,arr)
-                        listView.adapter= arrAd
-                    }
+
+                }
+
                 conclusiones_input.setText(specificRegisterDetail!!.register!!.sugerencias)
                 observaciones_input.setText(specificRegisterDetail!!.register!!.observaciones)
                 img_antes_input.load("https://chanchado-files.s3-sa-east-1.amazonaws.com/"+specificRegisterDetail!!.register!!.imagenAntes)

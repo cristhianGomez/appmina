@@ -21,7 +21,7 @@ class SpecificRegisterRepository(val dataSource: SpecificRegisterDataSource) {
         val response = dataSource.getSpecificRegisterData("Bearer "+token!!,machine)
         if (response.isSuccessful) {
             specificRegisterList = response.body()
-            println("response.body: $specificRegisterList")
+         //   println("response.body: $specificRegisterList")
 
         } else{
             return null
