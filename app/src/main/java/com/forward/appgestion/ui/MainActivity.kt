@@ -110,6 +110,9 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
                 bundle.putInt("id", 11)
                 findNavController(R.id.nav_host_fragment).navigate(R.id.specificRegisterFragment,bundle)
             }
+            R.id.informacionFragment->{
+                findNavController(R.id.nav_host_fragment).navigate(R.id.informacionFragment)
+            }
 
         }
         drawer_layout.closeDrawer(GravityCompat.START)
